@@ -15,7 +15,7 @@
       "function": {
         "AmplifyTestingAPI": {
           "deploymentBucketName": "amplify-trackerapp-staging-180700-deployment",
-          "s3Key": "amplify-builds/AmplifyTestingAPI-4b466d4838657a53676f-build.zip"
+          "s3Key": "amplify-builds/AmplifyTestingAPI-6277734b493842665a6d-build.zip"
         }
       },
       "api": {
