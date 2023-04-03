@@ -13,6 +13,16 @@ const awsmobile = {
             "name": "apid6755dce",
             "endpoint": "https://hia57mzxu0.execute-api.us-west-1.amazonaws.com/staging",
             "region": "us-west-1"
+        },
+        {
+            "name": "test",
+            "endpoint": "https://6gda44vim3.execute-api.us-west-1.amazonaws.com/staging",
+            "region": "us-west-1"
+        },
+        {
+            "name": "apid239f9ea",
+            "endpoint": "https://g9odeats82.execute-api.us-west-1.amazonaws.com/staging",
+            "region": "us-west-1"
         }
     ]
 };

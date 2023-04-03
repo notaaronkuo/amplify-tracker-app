@@ -11,11 +11,31 @@ import MembershipPage from './MembershipPage';
 import HomePage from './HomePage';
 import MakeListPage from './makeList';
 import SoonPage from './soonPage';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Switch} from 'react-router-dom';
+import axios from 'axios';
 
+const myAPI = "apic6cb0264"
+const path = '/customer';
 
 //Main Function
+
 function App() {
+
+  
+
+  const [myMessage, setMyMessage] = useState('')
+
+  const loadData = async () => {
+    const response = await axios.get("http://localhost:3000/search");
+    setMyMessage(response.myMessage);
+  }
+
+  useEffect(() => {
+    loadData()
+  },[])
+
+
+
   return (
     <Router>
       <div className="App">
@@ -29,6 +49,8 @@ function App() {
           <Route path = "/soonPage" element = {<SoonPage/>} />
         </Routes>
 
+        <p>hi {myMessage} hi</p>
+
       </div>
     </Router>
   );
@@ -37,26 +59,8 @@ function App() {
 export default App;
 
 /*
-var mysql = require('mysql');
 
-var connection = mysql.createConnection({
-  host     : "database-1.cwd3greadrvm.us-east-1.rds.amazonaws.com",
-  user     : "admin",
-  password : "922962700",
-  port     : 3306
-});
 
-connection.connect(function(err) {
-  if (err) {
-    console.error('Database connection failed: ' + err.stack);
-    return;
-  }
-
-  console.log('Connected to database.');
-});
-
-const myAPI = "apic6cb0264"
-const path = '/customer';
 
 const App = () => {
     const [input, setInput] = useState("")

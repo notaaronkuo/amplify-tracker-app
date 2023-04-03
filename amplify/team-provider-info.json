@@ -19,12 +19,22 @@
         },
         "search": {
           "deploymentBucketName": "amplify-trackerapp-staging-180700-deployment",
-          "s3Key": "amplify-builds/search-5063567564576a6d6566-build.zip"
+          "s3Key": "amplify-builds/search-3933696842587638384c-build.zip"
+        },
+        "searchtest": {
+          "deploymentBucketName": "amplify-trackerapp-staging-180700-deployment",
+          "s3Key": "amplify-builds/searchtest-5747337362646655584f-build.zip"
+        },
+        "trackerappaedfeff3": {
+          "deploymentBucketName": "amplify-trackerapp-staging-180700-deployment",
+          "s3Key": "amplify-builds/trackerappaedfeff3-6679346f453669726d49-build.zip"
         }
       },
       "api": {
         "apic6cb0264": {},
-        "apid6755dce": {}
+        "apid6755dce": {},
+        "test": {},
+        "apid239f9ea": {}
       }
     }
   }

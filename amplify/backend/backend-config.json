@@ -14,6 +14,20 @@
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
     },
+    "apid239f9ea": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "trackerappaedfeff3"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "apid6755dce": {
       "dependsOn": [
         {
@@ -27,6 +41,20 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
+    },
+    "test": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "searchtest"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
     }
   },
   "function": {
@@ -36,6 +64,16 @@
       "service": "Lambda"
     },
     "search": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "searchtest": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "trackerappaedfeff3": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -71,6 +109,38 @@
         {
           "category": "function",
           "resourceName": "search"
+        }
+      ]
+    },
+    "AMPLIFY_function_searchtest_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "searchtest"
+        }
+      ]
+    },
+    "AMPLIFY_function_searchtest_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "searchtest"
+        }
+      ]
+    },
+    "AMPLIFY_function_trackerappaedfeff3_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "trackerappaedfeff3"
+        }
+      ]
+    },
+    "AMPLIFY_function_trackerappaedfeff3_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "trackerappaedfeff3"
         }
       ]
     }

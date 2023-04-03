@@ -5,22 +5,16 @@ Licensed under the Apache License, Version 2.0 (the "License"). You may not use 
 or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and limitations under the License.
 */
-var mysql = require('mysql');
-
-var connection = mysql.createConnection({
-  host     : "database-1.cwd3greadrvm.us-east-1.rds.amazonaws.com",
-  user     : "admin",
-  password : "922962700",
-  port     : 3306
-});
-
 
 const express = require('express')
 const bodyParser = require('body-parser')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 
+
 // declare a new express app
 const app = express()
+
+
 app.use(bodyParser.json())
 app.use(awsServerlessExpressMiddleware.eventContext())
 
@@ -38,16 +32,15 @@ app.use(function(req, res, next) {
 
 app.get('/search', function(req, res) {
   // Add your code here
-  connection.connect(function(err) {
-    if (err) {
-      console.error('Database connection failed: ' + err.stack);
-      return;
-    }
-    res.json({success: 'Connected to database.', url: req.url});
-    console.log('Connected to database.');
-  });
   
+  
+  const items = ["candy", "popcorn"]
+  res.json({success: 'Connected to database.',items, url: req.url});
 });
+ 
+  
+  
+  
 
 app.get('/search/*', function(req, res) {
   // Add your code here
