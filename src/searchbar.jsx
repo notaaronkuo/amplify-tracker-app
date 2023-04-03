@@ -135,10 +135,12 @@ function SearchBar() {
     //   console.log("This is line 132 of searchbar.jsx");
     // }
     let myAPI = "85g81w4tm2";
-    API.get(myAPI,"/search/" + searchTerm)
+    API.get(myAPI,"search/" + searchTerm)
     .then(res => {
         console.log(res);
         console.log(res.data);
+    }).catch(err => {
+        console.log(err);
     });
 
 
