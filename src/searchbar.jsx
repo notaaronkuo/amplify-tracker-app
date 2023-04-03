@@ -134,8 +134,8 @@ function SearchBar() {
     //   setSelectedParamValue(<Users items2={UsersInfos.filter(UsersInfo => UsersInfo.Username.includes(searchTerm))} />)
     //   console.log("This is line 132 of searchbar.jsx");
     // }
-    let myAPI = "85g81w4tm2";
-    API.get(myAPI,"search/" + searchTerm)
+    let myAPI = "api1dc1e643";
+    API.get(myAPI,"/search/" + searchTerm)
     .then(res => {
         console.log(res);
         console.log(res.data);
