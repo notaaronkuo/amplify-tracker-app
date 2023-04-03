@@ -2,6 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import  { Amplify, API } from 'aws-amplify'
 import React, { useEffect, useState } from 'react'
+import awsconfig from './aws-exports';
+
+
 
 //import React, { useState } from 'react'
 import Hotbar from './hotbar';
@@ -16,12 +19,13 @@ import axios from 'axios';
 
 const myAPI = "apic6cb0264"
 const path = '/customer';
-
+Amplify.configure(awsconfig);
+API.configure(awsconfig);
 //Main Function
 
 function App() {
 
-  
+
 
   const [myMessage, setMyMessage] = useState('')
 
