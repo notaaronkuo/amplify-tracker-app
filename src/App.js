@@ -17,7 +17,7 @@ import SoonPage from './soonPage';
 import { BrowserRouter as Router, Routes, Route, Switch} from 'react-router-dom';
 import axios from 'axios';
 
-const myAPI = "apic6cb0264"
+const myAPI = "85g81w4tm2"
 const path = '/customer';
 Amplify.configure(awsconfig);
 API.configure(awsconfig);
