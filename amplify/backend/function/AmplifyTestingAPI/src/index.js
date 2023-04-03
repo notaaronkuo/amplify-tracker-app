@@ -25,6 +25,9 @@ connection.connect(function(err) {
  */
 exports.handler = async (event) => {
     console.log(event)
+    connection.query("select * from test.users", function(req, res) {
+      return res;
+    })
     const customerId = event.pathParameters.customerID;
     const customer = {'customerId': customerId, 'customerName': "Customer " + customerId };
     const response = {
