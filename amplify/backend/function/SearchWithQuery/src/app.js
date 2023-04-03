@@ -36,7 +36,6 @@ app.get('/search/:searchQuery', function(req, res) {
   // Add your code here
   // let dbResult = JSON.stringify(EntitiesFromDB.EntitiesFromDB());
 
-  console.log("hi");
   const mysql = require('mysql');
   let resultFromDB = null;
   const con = mysql.createConnection({
@@ -44,6 +43,11 @@ app.get('/search/:searchQuery', function(req, res) {
     user     : "admin",
     password : "922962700",
     port     : 3306
+
+    // host     : "bucket.cnzomfczmn9g.us-west-1.rds.amazonaws.com",
+    // user     : "team1",
+    // password : "921382797",
+    // port     : 3306
   });
   con.connect(function(err) {
     if (err) throw err;
@@ -57,7 +61,7 @@ app.get('/search/:searchQuery', function(req, res) {
 
 app.get('/search/:searchQuery/*', function(req, res) {
   // Add your code here
-  res.json({success: 'get call succeed!', url: req.url});
+  res.json({success: 'get call went off!', url: req.url});
 });
 
 /****************************

@@ -31,7 +31,7 @@
         },
         "SearchWithQuery": {
           "deploymentBucketName": "amplify-trackerapp-staging-180700-deployment",
-          "s3Key": "amplify-builds/SearchWithQuery-4532714a6255774f3859-build.zip"
+          "s3Key": "amplify-builds/SearchWithQuery-6a2f7850314e67344459-build.zip"
         }
       },
       "api": {

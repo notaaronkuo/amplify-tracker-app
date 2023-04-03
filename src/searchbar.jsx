@@ -118,7 +118,6 @@ function SearchBar() {
       console.log(`User selected:`);
       setSelectedParamValue(<Users items2={UsersInfos} />);
     }
-
   };
 
   const handleSubmit = (event) => {
@@ -137,8 +136,11 @@ function SearchBar() {
     let myAPI = "api1dc1e643";
     API.get(myAPI,"/search/" + searchTerm)
     .then(res => {
+        for(let i = 0; i < res.result.length; i++){
+            console.log(res.result[i].LocationListName);
+        }
+        console.log("This is line 139 of searchbar.jsx");
         console.log(res);
-        console.log(res.data);
     }).catch(err => {
         console.log(err);
     });
