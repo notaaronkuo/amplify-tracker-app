@@ -13,10 +13,11 @@ con.connect(function(err) {
     if (err) throw err;
     con.query('SELECT * from test.users', function(err, result, fields){
         console.log(result);
+        console.log("hi");
     });
 
     console.log("Connected!");
     con.end();
 });
 
-module.exports = a;
+module.exports = con;

@@ -10,6 +10,11 @@ const awsmobile = {
             "region": "us-west-1"
         },
         {
+            "name": "apid239f9ea",
+            "endpoint": "https://g9odeats82.execute-api.us-west-1.amazonaws.com/staging",
+            "region": "us-west-1"
+        },
+        {
             "name": "apid6755dce",
             "endpoint": "https://hia57mzxu0.execute-api.us-west-1.amazonaws.com/staging",
             "region": "us-west-1"
@@ -20,8 +25,8 @@ const awsmobile = {
             "region": "us-west-1"
         },
         {
-            "name": "apid239f9ea",
-            "endpoint": "https://g9odeats82.execute-api.us-west-1.amazonaws.com/staging",
+            "name": "api1dc1e643",
+            "endpoint": "https://85g81w4tm2.execute-api.us-west-1.amazonaws.com/staging",
             "region": "us-west-1"
         }
     ]

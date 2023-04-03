@@ -3,6 +3,7 @@ import items from './data-list';
 import items2 from './data-users';
 
 import './searchBar.css';
+import {API} from "aws-amplify";
 
 const all_Items = [...new Set(items.map((item) => item.category))]
 const all_Items2 = [...new Set(items2.map((item2) => item2.category))]
@@ -13,12 +14,12 @@ const Team = ({ items }) => {
     <div className="section-center">
       {items.map((memberInfo) => {
         const { LocationListID, LocationListName, LocationName, LocationListDescription, LocationID, UserID} = memberInfo
-        
+
         return (
-          
-          <article key={LocationListID} 
+
+          <article key={LocationListID}
           className="member-section">
-            
+
             <div className="lists-info">
               <header>
                 <h3>
@@ -39,9 +40,9 @@ const Team = ({ items }) => {
                 </h4>
 
             </div>
-            
+
           </article>
-          
+
               )
             })
            }
@@ -54,12 +55,12 @@ const Users = ({ items2 }) => {
     <div className="section-center">
       {items2.map((UsersInfo) => {
         const { UserID, Username, Name, Email, Password, isPublic} = UsersInfo
-        
+
         return (
-          
-          <article key={UserID} 
+
+          <article key={UserID}
           className="member-section">
-            
+
             <div className="users-info">
               <header>
                 <h3>
@@ -80,9 +81,9 @@ const Users = ({ items2 }) => {
                 </h4>
 
             </div>
-            
+
           </article>
-          
+
               )
             })
            }
@@ -107,12 +108,12 @@ function SearchBar() {
     setParam1(selectedValue);
   console.log("This is line 108 of searchbar.jsx");
 
-    
+
 
     if(selectedValue == 'value1') {
       console.log(`List selected`);
       setSelectedParamValue(<Team items={memberInfos} />);
-      
+
     } else if(selectedValue == 'value2') {
       console.log(`User selected:`);
       setSelectedParamValue(<Users items2={UsersInfos} />);
@@ -123,16 +124,25 @@ function SearchBar() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if(param1 == 'value1' && searchTerm){
-      console.log(`Search term: ${searchTerm}`);
-      setSelectedParamValue(<Team items={memberInfos.filter(memberInfo => memberInfo.LocationListName.includes(searchTerm))} />);
-      console.log("this is line 127 of searchbar.jsx");
-    }
-    else if(param1 == 'value2' && searchTerm){
-      console.log(`Search term: ${searchTerm}`);
-      setSelectedParamValue(<Users items2={UsersInfos.filter(UsersInfo => UsersInfo.Username.includes(searchTerm))} />)
-      console.log("This is line 132 of searchbar.jsx");
-    }
+    // if(param1 == 'value1' && searchTerm){
+    //   console.log(`Search term: ${searchTerm}`);
+    //   setSelectedParamValue(<Team items={memberInfos.filter(memberInfo => memberInfo.LocationListName.includes(searchTerm))} />);
+    //   console.log("this is line 127 of searchbar.jsx");
+    // }
+    // else if(param1 == 'value2' && searchTerm){
+    //   console.log(`Search term: ${searchTerm}`);
+    //   setSelectedParamValue(<Users items2={UsersInfos.filter(UsersInfo => UsersInfo.Username.includes(searchTerm))} />)
+    //   console.log("This is line 132 of searchbar.jsx");
+    // }
+
+    API.get("/search/" + searchTerm)
+    .then(res => {
+        console.log(res);
+        console.log(res.data);
+    });
+
+
+
     // perform search using selected parameters and search term
     // ...
   };

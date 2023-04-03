@@ -1,5 +1,19 @@
 {
   "api": {
+    "api1dc1e643": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "SearchWithQuery"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "apic6cb0264": {
       "dependsOn": [
         {
@@ -63,6 +77,11 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "SearchWithQuery": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "search": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -93,6 +112,22 @@
         {
           "category": "function",
           "resourceName": "AmplifyTestingAPI"
+        }
+      ]
+    },
+    "AMPLIFY_function_SearchWithQuery_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "SearchWithQuery"
+        }
+      ]
+    },
+    "AMPLIFY_function_SearchWithQuery_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "SearchWithQuery"
         }
       ]
     },
