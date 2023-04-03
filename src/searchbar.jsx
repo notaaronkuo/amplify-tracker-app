@@ -5,8 +5,10 @@ import items2 from './data-users';
 import './searchBar.css';
 import {API} from "aws-amplify";
 
-const all_Items = [...new Set(items.map((item) => item.category))]
-const all_Items2 = [...new Set(items2.map((item2) => item2.category))]
+// they were used as a reference for sorting for the about me page,
+// but i didnt use em in the home page if i recall correctly -Ari
+// const all_Items = [...new Set(items.map((item) => item.category))]
+// const all_Items2 = [...new Set(items2.map((item2) => item2.category))]
 
 
 const Team = ({ items }) => {
@@ -134,13 +136,16 @@ function SearchBar() {
     //   console.log("This is line 132 of searchbar.jsx");
     // }
     let myAPI = "api1dc1e643";
+    let searchItem = null;
+
     API.get(myAPI,"/search/" + searchTerm)
     .then(res => {
         for(let i = 0; i < res.result.length; i++){
-            console.log(res.result[i].username);
+          searchItem = res.result[i];
+          // You can call individual items like the above, or you can add by their attributes like below:
+          // searchItem = res.result[i].username;
+          // TODO: Parse item and format it for front end
         }
-        console.log("This is line 139 of searchbar.jsx");
-        console.log(res);
     }).catch(err => {
         console.log(err);
     });
