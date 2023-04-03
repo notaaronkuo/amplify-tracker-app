@@ -137,7 +137,7 @@ function SearchBar() {
     API.get(myAPI,"/search/" + searchTerm)
     .then(res => {
         for(let i = 0; i < res.result.length; i++){
-            console.log(res.result[i].LocationListName);
+            console.log(res.result[i].username);
         }
         console.log("This is line 139 of searchbar.jsx");
         console.log(res);
