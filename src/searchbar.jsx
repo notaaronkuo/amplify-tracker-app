@@ -4,6 +4,8 @@ import items2 from './data-users';
 
 import './searchBar.css';
 import {API} from "aws-amplify";
+var selectType = 0;
+
 
 // they were used as a reference for sorting for the about me page,
 // but i didnt use em in the home page if i recall correctly -Ari
@@ -101,24 +103,35 @@ function SearchBar() {
 
   const [memberInfos] = useState(items)
   const [UsersInfos] = useState(items2)
-  console.log("This is line 101 of searchbar.jsx");
+  
+  const [listItems1, setListItems1] = useState([]);
+  const [listItems2, setListItems2] = useState([]);
+
+ 
 
 
   const handleChangeParam1 = (event) => {
     const selectedValue = event.target.value;
     console.log(`Selected parameter 1: ${selectedValue}`);
     setParam1(selectedValue);
-  console.log("This is line 108 of searchbar.jsx");
-
 
 
     if(selectedValue == 'value1') {
-      console.log(`List selected`);
-      setSelectedParamValue(<Team items={memberInfos} />);
+      selectType = 1;
+      console.log(`List selected` + selectType);
+      setSelectedParamValue("");
+      //setSelectedParamValue(<Team items={memberInfos} />);
 
     } else if(selectedValue == 'value2') {
-      console.log(`User selected:`);
-      setSelectedParamValue(<Users items2={UsersInfos} />);
+      selectType = 1;
+      console.log(`User selected:` + selectType);
+      //setSelectedParamValue(<Users items2={UsersInfos} />);
+    } else{
+      selectType = 0;
+      console.log("Nothing selected" + selectType);
+      setSelectedParamValue("");
+      //Default selection
+
     }
   };
 
@@ -138,19 +151,104 @@ function SearchBar() {
     let myAPI = "api1dc1e643";
     let searchItem = null;
 
+    if (selectType === 0){
+      setSelectedParamValue("Please choose a list type");
+      console.log("2. Nothing selected" + selectType);
+    }
+
+//ORIGINAL VERSION NOT COMMENTED OUT
+
+    if(param1 == 'value1' && searchTerm){
+      API.get(myAPI,"/search/" + searchTerm)
+      .then(res => {
+          //for(let i = 0; i < res.result.length; i++){
+            //searchItem = res.result[i];
+            // You can call individual items like the above, or you can add by their attributes like below:
+            // searchItem = res.result[i].username;
+            // TODO: Parse item and format it for front end
+          //}
+          console.log("Original API format");
+      }).catch(err => {
+          console.log(err);
+      });
+  }
+  
+
+////////////////////////////////////DIVIDER//////////////////////////////
+  
+  /** FIRST VERSION WITHOUT THE RES.THEN FORMAT */
+  //Uncomment to use, but its not tested yet!
+  //Map values will show as undefined without the database
+  /*
+  console.log("Second Version Format");
+  if(param1 == 'value1' && searchTerm){
+    API.get(myAPI, "/search/" + searchTerm)
+    .then(response => {
+      const data1 = Object.values(response).map(item => ({
+            LocationListID: item.LocationListID,
+            LocationListName: item.LocationListName,
+            LocationListDescription: item.LocationListDescription,
+            LocationName: item.LocationName,
+            UserID: item.UserID,
+            LocationID: item.LocationID,
+          }));
+    setSelectedParamValue(<Team listItems1={data1} />);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+  } 
+  
+  else if (param1 === 'value2' && searchTerm) {
+    API.get(myAPI, "/search/" + searchTerm)
+      .then(response => {
+        const data2 = Object.values(response).map(item => ({
+          UserID: item.UserID,
+          Username: item.Username,
+          Name: item.Name,
+          Email: item.Email,
+          Password: item.Password,
+          isPublic: item.isPublic,
+        }));
+        setSelectedParamValue(<Users listItems2={data2} />);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+*/
+
+////////////////////////////////////DIVIDER//////////////////////////////
+
+//console.log("third Version Format");
+  /**SECOND VERSION WITH THE RES.THEN FORMATT */
+    //Uncomment to use, but its not tested yet!
+ //Map values will show as undefined without the database
+  /*
+  if(param1 == 'value1' && searchTerm){
+
     API.get(myAPI,"/search/" + searchTerm)
     .then(res => {
-        for(let i = 0; i < res.result.length; i++){
-          searchItem = res.result[i];
-          // You can call individual items like the above, or you can add by their attributes like below:
-          // searchItem = res.result[i].username;
-          // TODO: Parse item and format it for front end
-        }
-    }).catch(err => {
-        console.log(err);
+      setListItems1(res.data);
+    })
+    .catch(error => {
+      console.log(error);
     });
+    setSelectedParamValue(<Team listItems1={[]} />);
+  } else if(param1 == 'value2' && searchTerm){
 
+    API.get(myAPI,"/search/" + searchTerm)
+    .then(res => {
+      setListItems2(res.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+    setSelectedParamValue(<Users listItems2={[]} />);
+  }
+  */
 
+////////////////////////////////////DIVIDER//////////////////////////////
 
     // perform search using selected parameters and search term
     // ...

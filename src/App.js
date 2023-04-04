@@ -54,7 +54,7 @@ function App() {
           <Route path = "/soonPage" element = {<SoonPage/>} />
         </Routes>
 
-        <p>hi {myMessage} hi</p>
+        <p> {myMessage} </p>
 
       </div>
     </Router>
