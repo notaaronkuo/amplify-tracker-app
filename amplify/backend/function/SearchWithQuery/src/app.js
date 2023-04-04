@@ -33,25 +33,22 @@ app.use(function(req, res, next) {
  **********************/
 
 app.get('/search/:searchQuery', function(req, res) {
-  // Add your code here
-  // let dbResult = JSON.stringify(EntitiesFromDB.EntitiesFromDB());
+  // Add your code h
+  let searchQuery = req.params.searchQuery;
+
 
   const mysql = require('mysql');
   let resultFromDB = null;
   const con = mysql.createConnection({
-    host     : "database-1.cwd3greadrvm.us-east-1.rds.amazonaws.com",
-    user     : "admin",
-    password : "922962700",
+    host     : "bucket.cnzomfczmn9g.us-west-1.rds.amazonaws.com",
+    user     : "team1",
+    password : "921382797",
     port     : 3306
-
-    // host     : "bucket.cnzomfczmn9g.us-west-1.rds.amazonaws.com",
-    // user     : "team1",
-    // password : "921382797",
-    // port     : 3306
   });
   con.connect(function(err) {
     if (err) throw err;
-    con.query('SELECT * from test.users', function (err, result, fields) {
+    con.query("SELECT * FROM LocationListDB.Locationlist where LocationList.LocationListName LIKE'" + 
+    con.escape(searchQuery) + "'", function (err, result, fields) {
       console.log(result);
       res.json({success: 'get call succeed!', url: req.url, result});
     });
@@ -60,7 +57,15 @@ app.get('/search/:searchQuery', function(req, res) {
 });
 
 app.get('/search/:searchQuery/*', function(req, res) {
-  // Add your code here
+ if(searchQuery == 'value1') {
+  console.log('List selected');
+  setSelectedParamValue(<Team items={memberInfos} />);
+ } else if (searchQuery == 'value2') {
+  console.log('User Selected ');
+  setSelectedParamValue(<Users items2={UserInfos} />);
+
+ }
+
   res.json({success: 'get call went off!', url: req.url});
 });
 
@@ -69,7 +74,7 @@ app.get('/search/:searchQuery/*', function(req, res) {
 ****************************/
 
 app.post('/search/:searchQuery', function(req, res) {
-  // Add your code here
+  
   res.json({success: 'post call succeed!', url: req.url, body: req.body})
 });
 
@@ -91,7 +96,7 @@ app.put('/search/:searchQuery/*', function(req, res) {
   // Add your code here
   res.json({success: 'put call succeed!', url: req.url, body: req.body})
 });
-});
+
 
 /****************************
 * Example delete method *
