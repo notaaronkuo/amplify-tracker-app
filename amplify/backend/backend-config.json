@@ -1,5 +1,19 @@
 {
   "api": {
+    "api1dc1e643": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "SearchWithQuery"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "apic6cb0264": {
       "dependsOn": [
         {
@@ -13,10 +27,72 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
+    },
+    "apid239f9ea": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "trackerappaedfeff3"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
+    "apid6755dce": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "search"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
+    "test": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "searchtest"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
     }
   },
   "function": {
     "AmplifyTestingAPI": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "SearchWithQuery": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "search": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "searchtest": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "trackerappaedfeff3": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -36,6 +112,70 @@
         {
           "category": "function",
           "resourceName": "AmplifyTestingAPI"
+        }
+      ]
+    },
+    "AMPLIFY_function_SearchWithQuery_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "SearchWithQuery"
+        }
+      ]
+    },
+    "AMPLIFY_function_SearchWithQuery_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "SearchWithQuery"
+        }
+      ]
+    },
+    "AMPLIFY_function_search_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "search"
+        }
+      ]
+    },
+    "AMPLIFY_function_search_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "search"
+        }
+      ]
+    },
+    "AMPLIFY_function_searchtest_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "searchtest"
+        }
+      ]
+    },
+    "AMPLIFY_function_searchtest_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "searchtest"
+        }
+      ]
+    },
+    "AMPLIFY_function_trackerappaedfeff3_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "trackerappaedfeff3"
+        }
+      ]
+    },
+    "AMPLIFY_function_trackerappaedfeff3_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "trackerappaedfeff3"
         }
       ]
     }

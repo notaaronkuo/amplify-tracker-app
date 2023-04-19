@@ -15,11 +15,31 @@
       "function": {
         "AmplifyTestingAPI": {
           "deploymentBucketName": "amplify-trackerapp-staging-180700-deployment",
-          "s3Key": "amplify-builds/AmplifyTestingAPI-6277734b493842665a6d-build.zip"
+          "s3Key": "amplify-builds/AmplifyTestingAPI-647175684d51722f4866-build.zip"
+        },
+        "search": {
+          "deploymentBucketName": "amplify-trackerapp-staging-180700-deployment",
+          "s3Key": "amplify-builds/search-677067367768584f4a46-build.zip"
+        },
+        "searchtest": {
+          "deploymentBucketName": "amplify-trackerapp-staging-180700-deployment",
+          "s3Key": "amplify-builds/searchtest-5747337362646655584f-build.zip"
+        },
+        "trackerappaedfeff3": {
+          "deploymentBucketName": "amplify-trackerapp-staging-180700-deployment",
+          "s3Key": "amplify-builds/trackerappaedfeff3-6679346f453669726d49-build.zip"
+        },
+        "SearchWithQuery": {
+          "deploymentBucketName": "amplify-trackerapp-staging-180700-deployment",
+          "s3Key": "amplify-builds/SearchWithQuery-6a2f7850314e67344459-build.zip"
         }
       },
       "api": {
-        "apic6cb0264": {}
+        "apic6cb0264": {},
+        "apid6755dce": {},
+        "test": {},
+        "apid239f9ea": {},
+        "api1dc1e643": {}
       }
     }
   }

@@ -1,3 +1,23 @@
+var mysql = require('mysql');
+
+var connection = mysql.createConnection({
+  host     : "database-1.cwd3greadrvm.us-east-1.rds.amazonaws.com",
+  user     : "admin",
+  password : "922962700",
+  port     : 3306
+});
+
+connection.connect(function(err) {
+  if (err) {
+    console.error('Database connection failed: ' + err.stack);
+    return;
+  }
+
+  console.log('Connected to database.');
+});
+
+
+
 
 
 /**
@@ -5,6 +25,9 @@
  */
 exports.handler = async (event) => {
     console.log(event)
+    connection.query("select * from test.users", function(req, res) {
+      return res;
+    })
     const customerId = event.pathParameters.customerID;
     const customer = {'customerId': customerId, 'customerName': "Customer " + customerId };
     const response = {
@@ -18,3 +41,6 @@ exports.handler = async (event) => {
     };
     return response;
 };
+
+
+connection.end();
