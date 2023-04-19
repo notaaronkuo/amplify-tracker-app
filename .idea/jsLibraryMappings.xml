@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <excludedPredefinedLibrary name="bucketLyst_test/application/FrontEnd/amplify/backend/function/makeListFunction/src/node_modules" />
+    <excludedPredefinedLibrary name="bucketLyst_test/application/FrontEnd/node_modules" />
+  </component>
+</project>
